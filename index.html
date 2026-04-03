@@ -13,17 +13,23 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <!-- header -->
-    <header>
-      <nav>
-        <div>
-          <a href="http://">Home</a>
-          <a href="http://">Weather</a>
-          <a href="http://">Contact Us</a>
-        </div>
-      </nav>
-      <div>
-        <img src="" alt="Banner" />
+    <!-- header con selector de localidad-->
+
+    <header class="topbar">
+      <!--  -->
+      <div class="left">
+        <h1>🌊 BeachControl</h1>
+      </div>
+
+      <div class="right">
+        <select class="citySelector">
+          <option value="tres-arroyos">Tres Arroyos</option>
+          <option value="mar-del-plata">Mar del Plata</option>
+          <option value="pinamar">Pinamar</option>
+        </select>
+
+        <span class="info">Playa Norte | Sector 1-4</span>
+        <span class="time" id="timeNow">09:47</span><!-- insertar tiempo , en tiempo real -->
       </div>
     </header>
     <!-- contenido principal -->
