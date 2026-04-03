@@ -18,7 +18,7 @@
   gap: 16px;
 }
 
-.citySelector {
+#citySelector {
   background: #1e2a3a;
   color: #fff;
   border: 1px solid #2f3f55;
@@ -27,7 +27,7 @@
   cursor: pointer;
 }
 
-.citySelector:hover {
+#citySelector:hover {
   border-color: #4da3ff;
 }
 
