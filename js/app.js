@@ -10,18 +10,51 @@ const state = {
   currentCity: "Claromeco",
 };
 
+function getWindType(deg) {
+  // aproximado:
+  // 90° = este (mar → tierra) → ONshore
+  // 270° = oeste (tierra → mar) → OFFshore
+
+  if (deg >= 45 && deg <= 135) return "viento de mar";
+  if (deg >= 225 && deg <= 315) return "viento de tierra";
+
+  return "viento cruzado"; // cruzado
+}
+
+function estimateWave(wind) {
+  if (wind < 10) return 0.5;
+  if (wind < 20) return 1.0;
+  if (wind < 30) return 1.8;
+  return 2.8;
+}
+
+function getSeaStatus(wind, wave, windType) {
+  if (wind > 35 || wave > 2.5) return "rojo";
+
+  if (windType === "onshore" && wind > 20) return "rojo";
+
+  if (wind > 20 || wave > 1.5) return "amarillo";
+
+  return "verde";
+}
+
 /* funcion que usa el estado */
 
 async function fetchWeather(city) {
   const { lat, lon } = cities[city];
 
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=wave_height`;
 
   try {
     const response = await fetch(url);
     const data = await response.json();
 
-    return data.current_weather;
+    return {
+      temperature: data.current_weather.temperature,
+      windspeed: data.current_weather.windspeed,
+      winddirection: data.current_weather.winddirection,
+      waveHeight: data.hourly.wave_height[0],
+    };
   } catch (error) {
     console.error("Error al obtener clima:", error);
   }
@@ -32,13 +65,18 @@ async function updateDashboard() {
 
   if (!weather) return;
 
-  const temp = weather.temperature;
-  const wind = weather.windspeed;
+ const temp = weather.temperature;
+const wind = weather.windspeed;
+const winddirection = weather.winddirection;
 
-  // lógica simple de estado del mar (basado en viento)
-  let status = "verde";
-  if (wind > 20) status = "amarillo";
-  if (wind > 35) status = "rojo";
+// 🔥 primero definís tipo de viento
+const windType = getWindType(winddirection);
+
+// luego ola
+const wave = weather.waveHeight ?? estimateWave(wind);
+
+// 🔥 después calculás estado con TODO
+const status = getSeaStatus(wind, wave, windType);
 
   const icons = {
     verde: "🟢",
@@ -49,11 +87,16 @@ async function updateDashboard() {
   const statusPlaya = document.getElementById("status");
 
   statusPlaya.textContent = `${icons[status]} ${status.toUpperCase()}`;
-  statusPlaya.classList.remove("status-verde", "status-amarillo", "status-rojo");
+  statusPlaya.classList.remove(
+    "status-verde",
+    "status-amarillo",
+    "status-rojo",
+  );
   statusPlaya.classList.add(`status-${status}`);
 
   document.getElementById("temp").textContent = temp + "°C";
-  document.getElementById("wind").textContent = wind + " km/h";
+  document.getElementById("wind").textContent = wind + " km/h (" + windType + ")";
+  document.getElementById("wave").textContent = wave + " m";
   document.getElementById("alert").textContent =
     status === "rojo" ? "Condiciones peligrosas" : "Sin alertas";
 }
