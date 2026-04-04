@@ -2,6 +2,12 @@
     box-sizing: border-box;
 }
 
+/* colores */
+
+:root {
+  --principal:#1e2a3a;
+}
+
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -18,8 +24,8 @@
   gap: 16px;
 }
 
-#citySelector {
-  background: #1e2a3a;
+.selector {
+  background: var(--principal);
   color: #fff;
   border: 1px solid #2f3f55;
   padding: 6px 10px;
@@ -27,7 +33,7 @@
   cursor: pointer;
 }
 
-#citySelector:hover {
+.selector:hover {
   border-color: #4da3ff;
 }
 
@@ -35,6 +41,42 @@
   opacity: 0.8;
 }
 
-.time {
+.date {
   font-weight: bold;
+  gap: 1em;
+}
+
+/* Banner */
+
+.banner{
+  height: 20em;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* COLOR DEL ESTADO DEL MAR */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: black;
+  text-transform: uppercase;
+}
+
+/* CARTAS */
+
+.cardBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card{
+  width: 50vw;
+  margin: 1em;
+  background: var(--principal);
+  color: #f0ffff;
+}
+
+.updatedText {
+  color: #52afec;
 }

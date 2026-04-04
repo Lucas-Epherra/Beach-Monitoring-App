@@ -17,28 +17,46 @@
 
     <header class="topbar">
       <!--  -->
-      <div class="left">
+      <div class="title">
         <h1>🌊 Beach Control</h1>
       </div>
 
       <div class="right">
-        <select id="citySelector">
+        <!-- selector de ciudad -->
+        <select class="selector" id="citySelector">
           <option value="Claromeco">Claromeco</option>
           <option value="Reta">Reta</option>
           <option value="Orense">Orense</option>
         </select>
 
-        <span class="info">Playa Norte | Sector 1-4</span>
-        <span class="time" id="timeNow">--:--</span
-        ><!-- insertar tiempo , en tiempo real -->
+        <span class="date" id="fecha">--/--/--</span>
+        <span class="date" id="reloj">--:--</span>
       </div>
     </header>
+
     <!-- contenido principal -->
     <main>
+      <img class="banner" src="./assets/banner.png" alt="banner de playa" />
       <!-- cards de clima y riesgo -->
-      <div>
+      <div class="cardBox">
         <div class="card mb-3">
-          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Clima Actual</h5>
+            <div class="panel">
+              <p>Temperatura: <span id="temp"></span></p>
+              <p>Viento: <span id="wind"></span></p>
+              <p>Alerta: <span id="alert"></span></p>
+              <div class="status-container">
+                <span>Estado del mar:</span>
+                <span id="status" class="status-badge">--</span>
+              </div>
+            </div>
+            <p class="card-text">
+              <small class="updatedText">Last updated 3 mins ago</small>
+            </p>
+          </div>
+        </div>
+        <div class="card mb-3">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">
@@ -47,26 +65,10 @@
               longer.
             </p>
             <p class="card-text">
-              <small class="text-body-secondary">Last updated 3 mins ago</small>
+              <small class="updatedText">Last updated 3 mins ago</small>
             </p>
           </div>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <p class="card-text">
-              <small class="text-body-secondary">Last updated 3 mins ago</small>
-            </p>
-          </div>
-          <img src="..." class="card-img-bottom" alt="..." />
-        </div>
-        <button type="button" class="btn btn-primary">Primary</button>
-        <button type="button" class="btn btn-primary">Primary</button>
       </div>
     </main>
     <!-- footer -->
