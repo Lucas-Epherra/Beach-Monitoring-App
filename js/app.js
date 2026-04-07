@@ -29,6 +29,8 @@ async function updateDashboard() {
 function init() {
   const selector = document.getElementById("citySelector");
 
+  populateCities();
+
   selector.value = state.currentCity;
 
   selector.addEventListener("change", (e) => {
@@ -39,5 +41,16 @@ function init() {
   updateDashboard();
   startClock();
 }
+
+
+function populateCities() {
+  const selector = document.getElementById("citySelector");
+
+  selector.innerHTML = Object.keys(cities)
+    .map((city) => `<option value="${city}">${city}</option>`)
+    .join("");
+}
+
+
 
 init();

@@ -10,7 +10,12 @@ export function renderDashboard(data) {
   const statusPlaya = document.getElementById("status");
 
   statusPlaya.textContent = `${icons[status]} ${status.toUpperCase()}`;
-  statusPlaya.className = `status-${status}`;
+  statusPlaya.classList.remove(
+    "status-verde",
+    "status-amarillo",
+    "status-rojo",
+  );
+  statusPlaya.classList.add(`status-${status}`);
 
   document.getElementById("temp").textContent = temp + "°C";
   document.getElementById("wind").textContent =
@@ -21,6 +26,5 @@ export function renderDashboard(data) {
 }
 
 export function renderDashboardError() {
-  document.getElementById("alert").textContent =
-    "Error al cargar datos";
+  document.getElementById("alert").textContent = "Error al cargar datos";
 }
