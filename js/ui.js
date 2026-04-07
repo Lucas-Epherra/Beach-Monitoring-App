@@ -16,13 +16,21 @@ export function renderDashboard(data) {
     "status-rojo",
   );
   statusPlaya.classList.add(`status-${status}`);
+  const statusCard = document.querySelector(".main-status");
+
+  statusCard.classList.remove("status-verde", "status-amarillo", "status-rojo");
+  statusCard.classList.add(`status-${status}`);
 
   document.getElementById("temp").textContent = temp + "°C";
   document.getElementById("wind").textContent =
     wind + " km/h (" + windType + ")";
   document.getElementById("wave").textContent = wave + " m";
+
+
+  // intentare hacer esto con un switch
   document.getElementById("alert").textContent =
-    status === "rojo" ? "Condiciones peligrosas" : "Sin alertas";
+    status === "rojo" ? "Condiciones peligrosas" : 
+    status === "amarillo" ? "Riesgos Moderados":"Sin Alertas";
 }
 
 export function renderDashboardError() {

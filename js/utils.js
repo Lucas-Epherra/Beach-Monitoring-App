@@ -21,11 +21,11 @@ export function estimateWave(wind) {
 
 // con el viento y la ola me brinda el estado del mar
 export function getSeaStatus(wind, wave, windType) {
-  if (wind > 35 || wave > 2.5) return "rojo";
+  if (wind > 25 || wave > 1.5) return "rojo";
 
   if (windType === "onshore" && wind > 20) return "rojo";
 
-  if (wind > 20 || wave > 1.5) return "amarillo";
+  if (wind > 15 || wave > 1) return "amarillo";
 
   return "verde";
 }
