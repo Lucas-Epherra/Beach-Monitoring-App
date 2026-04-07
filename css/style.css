@@ -1,7 +1,7 @@
 :root {
   --bg: #0f172a;
-  --card: rgba(30, 41, 59, 0.6);
-  --border: rgba(255,255,255,0.1);
+  --card: rgba(30, 41, 59, 0.418);
+  --border: rgba(255, 255, 255, 0.089);
   --text: #e2e8f0;
   --muted: #94a3b8;
 }
@@ -60,7 +60,7 @@ select {
 
 /* glass effect */
 .card {
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 18px;
@@ -99,10 +99,16 @@ select {
   color: #facc15;
   text-shadow: 0 0 12px rgba(250,204,21,0.7);
 }
-
 .status-rojo {
   color: #ef4444;
-  text-shadow: 0 0 18px rgba(239,68,68,0.9);
+  text-shadow: 0 0 20px rgba(239,68,68,1);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
 }
 
 /* metrics */
