@@ -5,24 +5,33 @@
 /* colores */
 
 :root {
-  --principal:#1e2a3a;
+  --principal:#021435;
   --texto:#f0ffff;
+  --background:#012553;
+  --secondary:#3b6fb3;
+}
+
+body {
+  background: var(--background);
 }
 
 .topbar {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 16px 24px;
-  background: rgba(20, 30, 48, 0.9);
+  background: var(--principal);
   backdrop-filter: blur(10px);
   color: var(--texto);
+  margin: 1rem 1rem 0rem 1rem;
+  padding: 1rem;
 }
 
 .topbar .right {
   display: flex;
-  align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .selector {
@@ -50,8 +59,9 @@
 /* Banner */
 
 .banner{
-  height: 20em;
+  height: 18em;
   width: 100%;
+  padding: 1rem;
   object-fit: cover;
 }
 
@@ -71,6 +81,18 @@
   justify-content: space-between;
 }
 
+.card-title{
+  display: inline-block;
+  padding-bottom:0.5em;
+  border-bottom:var(--secondary) 1px solid ;
+  font-size: 2em;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
 .card{
   width: 50vw;
   margin: 1em;
@@ -78,6 +100,17 @@
   color: var(--texto);
 }
 
+.panelText{
+  text-decoration: underline 1px solid var(--secondary);
+  text-underline-offset: 0.40rem;
+}
+
+.panelStatus{
+  border-bottom: 1px var(--secondary) solid;
+  padding-bottom: 0.10em;
+}
+
 .updatedText {
   color: #52afec;
 }
+
