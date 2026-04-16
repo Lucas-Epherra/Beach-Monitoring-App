@@ -1,12 +1,57 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
 
-    <title>BeachControlWeb</title>
+    <title>BeachControl | Tu playa en tiempo real</title>
+
+    <meta
+      name="description"
+      content="BeachControl es una aplicación web que muestra el estado del mar en tiempo real, con temperatura, viento, oleaje y alertas para la playa."
+    />
+    <meta name="author" content="Lucas Epherra" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://lucas-epherra.github.io/BeachApp/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:title" content="BeachControl | Tu playa en tiempo real" />
+    <meta
+      property="og:description"
+      content="Aplicación web para visualizar en tiempo real el estado del mar, temperatura, viento, oleaje y alertas de playa."
+    />
+    <meta property="og:url" content="https://lucas-epherra.github.io/BeachApp/" />
+    <meta property="og:site_name" content="BeachControl" />
+    <meta
+      property="og:image"
+      content="https://lucas-epherra.github.io/BeachApp/imgs/og-preview.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Vista previa del proyecto BeachControl con datos del mar en tiempo real"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BeachControl | Tu playa en tiempo real" />
+    <meta
+      name="twitter:description"
+      content="Aplicación web para visualizar en tiempo real el estado del mar, temperatura, viento, oleaje y alertas de playa."
+    />
+    <meta
+      name="twitter:image"
+      content="https://lucas-epherra.github.io/BeachApp/imgs/og-preview.jpg"
+    />
+
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
+
   <body>
     <div class="app">
       <header class="header">
@@ -55,6 +100,7 @@
         <span id="reloj"></span>
       </footer>
     </div>
+
+    <script type="module" src="./js/app.js"></script>
   </body>
-  <script type="module" src="./js/app.js"></script>
 </html>

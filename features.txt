@@ -1,0 +1,5 @@
+// Puedo agregar notificacion push
+// Historial de datos
+// Agregar una web cam de la playa
+// Agregar graficos
+
